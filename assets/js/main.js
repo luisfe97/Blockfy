@@ -296,3 +296,71 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+
+   // Dom elements
+   var btnHello = $('.btn-hello'),
+   theHeader = $('.Contactheader'),
+   contactTiles = $('.contact-tiles'),
+   sayHelloTitle = $('.contact h3'),
+   
+   // States
+   btnClicked = false,
+   
+   // New timelines... duh
+   tlIn = new TimelineLite({paused:true});
+   tlOut = new TimelineLite({paused: true});
+
+// Animation timelines
+
+//Timeline In
+tlIn.to(theHeader, 2, {backgroundColor: 'rgba(0,0,0,.85)'})
+   .to(theHeader, 1, {top: '-60px', ease:Power1.easeOut}, '-=0.6')
+   .from(sayHelloTitle, .2, {opacity: '0', scale: '0.9'})
+   .staggerFrom(contactTiles, .25, {opacity: '0', scale: '1.2'}, .1);
+
+// Timeline Out - not done 
+/*  1. Fade out
+   2. Jump to top of page (outside viewport) + restore everything to original state, 0s
+   3. Animate into place with y: '60px' */
+tlOut.to(theHeader, 0.5, {opacity: '0',})
+    .to(theHeader, 0, {top: '-100%', opacity: '1'})
+    .to(theHeader, 0.2, {y: '60px'});
+
+
+// Functions
+
+var animInContact = function() {
+ tlIn.play();
+ 
+ setTimeout(function() {
+   $('.Contactheader').addClass('to-bottom');
+   btnHello.html('GO BACK');
+ }, 1200);
+}
+
+var animOutContact = function() {
+ tlIn.reverse(); // reverse for now
+ //tlOut.play(); 
+ setTimeout(function() {
+   $('.Contactheader').removeClass('to-bottom');
+   btnHello.html('SAY HELLO');
+ }, 650);
+}
+
+// Bind clicks to .btn-hello
+
+btnHello.click(function() {
+ if (btnClicked === false) {
+   
+   animInContact();
+   btnClicked = true;
+
+ } else {
+   
+   animOutContact();
+   btnClicked = false;
+
+ }
+
+});
