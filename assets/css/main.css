@@ -1118,7 +1118,7 @@ section {
   bottom:0;
 }
 .botonContacto:hover:before,.botonContacto:hover:after{
-  width: 120px;
+  width: fit-content;
   background:transparent;
   transition:700ms ease all;
 
