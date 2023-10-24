@@ -1094,7 +1094,7 @@ section {
   width: 120px;
 }
 .botonContacto:hover{
-  background:#fff;
+  background:transparent;
   color:#ff9700;
   width: fit-content;
   width: 120px;
@@ -1117,6 +1117,7 @@ section {
 }
 .botonContacto:hover:before,.botonContacto:hover:after{
   width: 120px;
+  background:transparent;
   transition:700ms ease all;
 
 }
