@@ -14,10 +14,10 @@
 --------------------------------------------------------------*/
 :root {
   scroll-behavior: smooth;
-  background-color: var(--bs-gray-100);
+  background-color: white !important;
 }
 body{
-  background-color: var(--bs-gray-100);
+  background-color: white !important;
 }
 
 a {
@@ -566,10 +566,9 @@ section {
 --------------------------------------------------------------*/
 .hero-animated {
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   min-height: 50vh;
-
-  padding: 120px 0 60px;
+  background-color: white;
 }
 .animation{
 
@@ -1075,7 +1074,95 @@ section {
     font-size: 14px;
   }
 }
+.botonContacto{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:#ff9700;
+  color:#fff;
+  border:none;
+  border-radius: 10px;
+  position:relative;
+  height:40px;
+  font-size:13px;
+  font-weight: bold;
+  text-align: center;
+  margin:0 3em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  width: 120px;
+}
+.botonContacto:hover{
+  background:#fff;
+  color:#ff9700;
+  width: fit-content;
+  width: 120px;
+}
+.botonContacto:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #ff9700;
+  transition:400ms ease all;
+}
+.botonContacto:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.botonContacto:hover:before,.botonContacto:hover:after{
+  width: 120px;
+  transition:700ms ease all;
 
+}
+
+
+
+.Segunda{
+  padding: 10%;
+  transform: scale(0);
+  width: 100% !important;
+}
+.Segunda img{
+  width: 100% !important;
+  height: fit-content;
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+.Tercera{
+  padding: 10%;
+  transform: scale(0);
+  width: 100% !important;
+}
+.Tercera img{
+  width: 100% !important;
+  height: fit-content;
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+.Cuarta{
+  padding: 10%;
+  transform: scale(0);
+  width: 100% !important;
+}
+.Cuarta img{
+  width: 100% !important;
+  height: fit-content;
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+@keyframes up-down2 {
+  0% {
+    transform: translateY(30px);
+  }
+
+  100% {
+    transform: translateY(-30px);
+  }
+}
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
@@ -1173,7 +1260,8 @@ section {
 # Clients Section
 --------------------------------------------------------------*/
 .clients {
-  padding: 0 0 60px 0;
+  padding: 60px 0 60px 0;
+  background-color: #E6E6E6;
 }
 
 .clients .swiper-slide img {
@@ -2749,4 +2837,19 @@ section {
   padding: 10px;
   margin: 0;
   line-height: 1.8em;
+}
+.ejemplo{
+  
+  background-color: #E6E6E6 !important;
+  
+}
+
+.ejemplo img {
+  width:300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 10px;
 }

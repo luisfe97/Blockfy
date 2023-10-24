@@ -1,35 +1,23 @@
-let sections = gsap.utils.toArray("section"),
-    currentSection = sections[0];
+gsap.registerPlugin(ScrollTrigger);
 
-gsap.defaults({overwrite: 'auto', duration: 1});
-
-// stretch out the body height according to however many sections there are. 
-gsap.set("body", {height: (sections.length * 100) + "%"});
-
-// create a ScrollTrigger for each section
-sections.forEach((section, i) => {
-  ScrollTrigger.create({
-    // use dynamic scroll positions based on the window height (offset by half to make it feel natural)
-    start: () => (i - 0.5) * innerHeight,
-    end: () => (i + 0.5) * innerHeight,
+const t1 = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#hero-animated",
+    pin: true,
+    start: "top 0%",
+    end: "300% ",
     scrub: true,
-    markers: true,
-    toggleActions: "play reset play reset",
-    // when a new section activates (from either direction), set the section accordingly.
-    onToggle: self => self.isActive && setSection(section)
-  });
+  },
 });
 
-function setSection(newSection) {
-  if (newSection !== currentSection) {
-   gsap.timeline()
-     .to(currentSection.querySelector("h1"), {y:-30, autoAlpha:0, duration:0.3})
-     .to(currentSection, {autoAlpha:0, duration:0.5})
-    
-    gsap.timeline()
-      .to(newSection, {autoAlpha:1, duration:0.5})
-      .fromTo(newSection.querySelector("h1"), {y:30, autoAlpha:0}, {autoAlpha: 1, y: 0, duration:.3})
-    
-    currentSection = newSection;    
-  }
-}
+t1.to(".esfera", { delay: 0.5, duration: 1, scale: 1.5, opacity: 0 }, "start")
+  .to(".primera ", { delay: 0.5, duration: 1, scale: 1, opacity: 0 }, "start")
+  .to("#hero-animated", { delay: 1.5, duration: 1, backgroundColor: "#E4DED5" }, "start")
+  .to(".Segunda", { delay: 1.5, duration: 1, scale: 1, opacity: 1 }, "start")
+  .to(".Segunda", { delay: 4.8, duration: 1, scale: 1.5, opacity: 0 }, "start")
+  .to("#hero-animated", { delay: 5, duration: 2, backgroundImage: "linear-gradient(90deg, rgba(255,247,173,1) 0%, rgba(255,169,249,1) 100%)" }, "start")
+  .to(".Tercera", { delay: 5, duration: 2, scale: 1, opacity: 1 }, "start")
+  .to(".Tercera", { delay: 7.4, duration: 0.5, scale: 1.5, opacity: 0 }, "start")
+  .to("#hero-animated", { delay: 7.5, duration: 2, backgroundImage: "linear-gradient(90deg, rgba(205,255,216,1) 0%, rgba(148,185,255,1) 100%)" }, "start")
+  .to(".Cuarta", { delay: 7.5, duration: 1, scale: 1, opacity: 1 }, "start")
+  .to("#hero-animated", { delay: 9.5, duration: 1, backgroundImage: "linear-gradient(90deg, rgba(230, 230, 230,1) 0%, rgba(230, 230, 230,1) 0%)" }, "start");

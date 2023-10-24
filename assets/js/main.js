@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectHeader = document.querySelector('#header');
   if (selectHeader) {
     document.addEventListener('scroll', () => {
-      window.scrollY > 100 ? selectHeader.classList.add('sticked') : selectHeader.classList.remove('sticked');
+      window.scrollY > 2000 ? selectHeader.classList.add('sticked') : selectHeader.classList.remove('sticked');
     });
   }
 
@@ -236,10 +236,6 @@ document.addEventListener('DOMContentLoaded', () => {
       640: {
         slidesPerView: 4,
         spaceBetween: 80
-      },
-      992: {
-        slidesPerView: 5,
-        spaceBetween: 120
       }
     }
   });
