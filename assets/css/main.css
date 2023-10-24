@@ -37,6 +37,7 @@ h3,
 h4,
 h5,
 h6 {
+  text-align: left;
   font-family: var(--font-primary);
 }
 
@@ -1092,15 +1093,15 @@ section {
   cursor:pointer;
   transition:800ms ease all;
   outline:none;
-  width: 120px;
+  width: fit-content;
 }
 .botonContacto:hover{
   background:transparent;
   color:#ff9700;
   width: fit-content;
-  width: 120px;
+
 }
-.botonContacto:before,button:after{
+.botonContacto:before,a:after{
   content:'';
   position:absolute;
   top:0;
